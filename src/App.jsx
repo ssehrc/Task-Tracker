@@ -1,12 +1,21 @@
 import { useState } from 'react'
-import './App.css'
+import AddTask from './components/AddTask'
 
 function App() {
 
   return (
-    <div>
-     
-    </div>
+    <>
+     <h1 className='text-2xl font-bold py-4 pl-6'>
+      Task Tracker
+      </h1>
+      <p className='text-xl pl-6'>Hello!</p>
+      <div className='flex flex-row items-center'>
+        <p className='text-xl pl-6'>Click 
+          <AddTask />
+        </p>
+        <p className='text-xl my-2'>to add a task.</p>
+      </div>
+    </>
   )
 }
 
