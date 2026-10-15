@@ -13,9 +13,9 @@ const AddTask = () => {
                 <div className="flex items-center justify-center 
                     overflow-x-hidden overflow-y-auto fixed inset-0 z-100">
                     
-                    <div className="w-9/12 bg-white">
+                    <div className="w-9/12 bg-white border rounded-lg shadow-md relative flex flex-col">
 
-                        <div className="w-9/12 flex flex-row justify-bewteen p-5">
+                        <div className="flex flex-row justify-bewteen p-5">
 
                             <h3 className="text-3xl font-semibold">Add New Task</h3>
 
@@ -26,11 +26,19 @@ const AddTask = () => {
 
                         </div>
                         <form>
-                            <input 
-                                id="project-name"
-                                type="text"
-                                placeholder="Project Name"
-                            />
+                            <div>
+                                <label className="tracking-wide uppercase text-gray-700 
+                                text-xs font-semibold mb-2 block" htmlFor="project-name">Project Name</label>
+                                <input 
+                                    className="w-full bg-gray-200 text-gray-700 border border-gray-200 rounded 
+                                    py-3 px-4 mb-5 leading-tight 
+                                    focus:outline-none focus:bg-white"
+                                    id="project-name"
+                                    type="text"
+                                    placeholder="Project Name"
+                                    required
+                                />
+                            </div>
                         </form>
                     </div>
                 </div>
