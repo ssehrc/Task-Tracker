@@ -2,11 +2,14 @@ import { useState } from "react";
 
 const AddTask = () => {
     const [addModal, setAddModal] = useState(false);
+    const handleAdd = () =>{
+        setAddModal(false);
+    }
     return(
         <>
         <button className="bg-blue-500 text-white uppercase 
         text-sm font-semibold py-1 mx-1.5 pl-2 pr-2.5 rounded 
-        hover:opacity-70" type="button" onClick={()=> setAddModal(true)}>+ New</button>
+        hover:opacity-70 cursor-pointer" type="button" onClick={()=> setAddModal(true)}>+ New</button>
 
         {addModal ? (
             <>
@@ -19,8 +22,8 @@ const AddTask = () => {
 
                             <h3 className="text-3xl font-semibold">Add New Task</h3>
 
-                            <button className="px-1 text-gray-400 float-right text-3xl 
-                            leading-none font-semibold block" 
+                            <button className="px-1 text-gray-400 float-right text-end text-3xl 
+                            leading-none font-semibold block cursor-pointer" 
                             onClick={() => setAddModal(false)}
                             >x</button>
 
@@ -47,7 +50,7 @@ const AddTask = () => {
                                     py-3 px-4 mb-5 leading-tight 
                                     focus:outline-none focus:bg-white"
                                         id = "task-description"
-                                        rows="3"
+                                        rows="5"
                                         placeholder="Task Description"
                                     />
                                 </label>
@@ -56,7 +59,7 @@ const AddTask = () => {
                         <div className="flex justify-end p-6 border-t border-slate-200 rounded-b">
                             <button className="bg-blue-500 text-white font-semibold 
                             uppercase text-sm px-6 py-3 rounded 
-                            hover:opacity-70">
+                            hover:opacity-70 cursor-pointer" onClick={handleAdd}>
                                 Add Task
                             </button>
                         </div>
