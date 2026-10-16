@@ -1,10 +1,27 @@
 import { useState } from "react";
 
-const AddTask = () => {
+const AddTask = ({taskList, setTaskList}) => {
     const [addModal, setAddModal] = useState(false);
-    const handleAdd = () =>{
-        setAddModal(false);
+    const [projectName, setProjectName] = useState("");
+    const [taskDescription, setTaskDescription] = useState("");
+
+    const handleInput = e => {
+        const {name, value} = e.target;
+
+        if(name === "projectName") setProjectName(value)
+        if(name === "taskDescription") setTaskDescription(value)
     }
+
+    const handleAdd = e =>{
+        e.preventDefault();
+        setTaskList( 
+            [...taskList, {projectName, taskDescription }]
+        );
+        setAddModal(false);
+        setProjectName("");
+        setTaskDescription("");
+    }
+
     return(
         <>
         <button className="bg-blue-500 text-white uppercase 
@@ -28,17 +45,20 @@ const AddTask = () => {
                             >x</button>
 
                         </div>
-                        <form>
+                        <form className="px-6 pt-6 pb-4">
                             <div>
                                 <label className="tracking-wide uppercase text-gray-700 
-                                text-xs font-semibold mb-2 block" htmlFor="project-name">Task Description</label>
+                                text-xs font-semibold mb-2 block" htmlFor="project-name">Project Name</label>
                                 <input 
                                     className="w-full bg-gray-200 text-gray-700 border border-gray-200 rounded 
                                     py-3 px-4 mb-5 leading-tight 
                                     focus:outline-none focus:bg-white"
                                     id="project-name"
+                                    name="Project name"
                                     type="text"
                                     placeholder="Project Name"
+                                    value={projectName}
+                                    onChange={handleInput}
                                     required
                                 />
                             </div>
@@ -49,9 +69,12 @@ const AddTask = () => {
                                         className="w-full bg-gray-200 text-gray-700 border border-gray-200 rounded 
                                     py-3 px-4 mb-5 leading-tight 
                                     focus:outline-none focus:bg-white"
-                                        id = "task-description"
+                                        id ="task-description"
+                                        name="task Description"
                                         rows="5"
                                         placeholder="Task Description"
+                                        value={taskDescription}
+                                        onChange={handleInput}
                                     />
                                 </label>
                             </div>
