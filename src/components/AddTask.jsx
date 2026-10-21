@@ -54,7 +54,7 @@ const AddTask = ({taskList, setTaskList}) => {
                                     py-3 px-4 mb-5 leading-tight 
                                     focus:outline-none focus:bg-white"
                                     id="project-name"
-                                    name="Project name"
+                                    name="projectName" //remember for next time that it has to be the same as your variable name
                                     type="text"
                                     placeholder="Project Name"
                                     value={projectName}
@@ -70,7 +70,7 @@ const AddTask = ({taskList, setTaskList}) => {
                                     py-3 px-4 mb-5 leading-tight 
                                     focus:outline-none focus:bg-white"
                                         id ="task-description"
-                                        name="task Description"
+                                        name="taskDescription"
                                         rows="5"
                                         placeholder="Task Description"
                                         value={taskDescription}
