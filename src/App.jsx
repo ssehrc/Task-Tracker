@@ -9,13 +9,18 @@ function App() {
       Task Tracker
       </h1>
       <div className='flex flex-row items-center'>
-        
+
           <p className='text-xl pl-6'>Click</p> 
           <AddTask taskList={taskList} setTaskList={setTaskList} />
           <p className='text-xl my-2'>to add a task.</p>
         
         </div>
-      
+        {taskList.map((task, i) => 
+        <>
+          <p>{task.projectName}</p>
+          <p>{task.taskDescription}</p>
+        </>
+        )}
     </>
   )
 }
